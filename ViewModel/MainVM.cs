@@ -1,13 +1,9 @@
 ﻿using GalaSoft.MvvmLight.Command;
-using Microsoft.EntityFrameworkCore;
 using Pharmacy.Model;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Windows;
 
 namespace Pharmacy.ViewModel
 {
@@ -61,7 +57,8 @@ namespace Pharmacy.ViewModel
 
         public void Action() 
         {
-            SelectMedicines(false, searchName);
+            if (!string.IsNullOrEmpty(searchName)) 
+                SelectMedicines(false, searchName);
         }
 
         public MainVM()
@@ -84,7 +81,7 @@ namespace Pharmacy.ViewModel
             {
                 if (check)
                 {
-                    if (searchName == "all")
+                    if (searchName == "Увесь перелік")
                         MyMedicines = new ObservableCollection<Medicine>(context.Medicines.ToList().OrderBy(i => i.Name));
                     else
                     {

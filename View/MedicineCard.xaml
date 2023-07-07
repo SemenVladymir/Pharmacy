@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:Pharmacy.View"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="420">
+    <UserControl.Resources>
+        <ResourceDictionary Source="MaterialDesignResource.xaml"></ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10*" />
@@ -17,9 +20,9 @@
             <ColumnDefinition Width="60*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="Aqua">
-            <TextBlock FontWeight="Bold" Text="{Binding Name}" />
-            <TextBlock Text="{Binding ShortDescription}" />
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#789800" Cursor="" >
+            <TextBlock FontWeight="Bold" Text="{Binding Name}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Margin="10, 2"/>
+            <TextBlock Text="{Binding ShortDescription}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Margin="10, 2"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
             <Image Source="{Binding Path=UrlPhoto}" Margin="5, -10, 5, 0"/>
